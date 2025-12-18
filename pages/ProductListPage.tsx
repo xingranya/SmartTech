@@ -94,7 +94,15 @@ const ProductListPage = () => {
         {filteredProducts.map(product => (
           <Link to={`/products/${product.id}`} key={product.id} className="group bg-white rounded-xl shadow-sm hover:shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1 block">
             <div className="relative h-48 overflow-hidden bg-gray-100">
-              <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img 
+                src={product.image} 
+                alt={product.name} 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = 'https://via.placeholder.com/400x300?text=Image+Not+Available';
+                }} 
+              />
               <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-semibold text-slate-700">
                 {product.category === 'Sensor' ? '传感器' : '边缘设备'}
               </div>

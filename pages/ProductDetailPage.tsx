@@ -28,7 +28,15 @@ const ProductDetailPage = () => {
           {/* Image Gallery */}
           <div className="space-y-4">
             <div className="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 h-96 flex items-center justify-center">
-              <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+              <img 
+                src={product.image} 
+                alt={product.name} 
+                className="w-full h-full object-cover" 
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = 'https://via.placeholder.com/600x400?text=Image+Not+Available';
+                }} 
+              />
             </div>
             <div className="grid grid-cols-4 gap-4">
               {[1, 2, 3, 4].map(i => (

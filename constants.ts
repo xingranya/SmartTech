@@ -24,7 +24,7 @@ export const PRODUCTS: Product[] = [
     priceRange: '¥15,000–¥20,000',
     price: 15000,
     // Reliable Server rack / Tech image
-    image: 'https://images.unsplash.com/photo-1531297461136-82lw9z0u7e3c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80',
     description: '强大的边缘计算节点，支持本地 AI 推理和数据聚合，大幅降低云端带宽压力。',
     features: ['NVIDIA Jetson 核心', '双千兆网口', '无风扇被动散热'],
     specs: [
