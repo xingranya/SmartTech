@@ -21,7 +21,7 @@ const LoginPage = () => {
       <div className="bg-white w-full max-w-md p-8 rounded-2xl shadow-xl border border-gray-100">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-slate-800">欢迎回来</h1>
-          <p className="text-slate-500 text-sm mt-2">请登录以访问您的控制台</p>
+          <p className="text-slate-500 text-sm mt-2">请登录以访问</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-6">

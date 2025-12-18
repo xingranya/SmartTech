@@ -33,20 +33,33 @@ const EcosystemPage = () => {
         <h2 className="text-2xl font-bold text-slate-800 mb-8 text-center">战略合作伙伴</h2>
         <div className="flex flex-wrap justify-center gap-8">
           {PARTNERS.map(partner => (
-            <div key={partner.id} className="w-48 h-32 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center hover:shadow-xl transition-all hover:border-brand-300 group p-4">
-              <div className="flex-1 flex items-center justify-center w-full">
+            <div 
+              key={partner.id} 
+              className="w-48 h-32 bg-white border border-gray-200 rounded-xl flex flex-col items-center justify-center hover:shadow-xl transition-all hover:border-brand-300 group p-4 cursor-pointer"
+              onClick={() => {
+                // 根据合作伙伴类型跳转到相应页面
+                const urls: Record<string, string> = {
+                  'Grid': partner.name === '中国石油' ? 'https://www.cnpc.com.cn/cnpc/index.shtml' : 'http://www.sgcc.com.cn/html/sgcc_main/gb/index.shtml',
+                  'Cable': 'https://www.fese.cn',
+                  'Tech': partner.name === '华为' ? 'https://www.huawei.com' : 
+                          partner.name === '西门子' ? 'https://www.siemens.com' : '#'
+                };
+                window.open(urls[partner.type], '_blank');
+              }}
+            >
+              <div className="flex-1 flex items-center justify-center w-full p-2">
                 <img 
                   src={partner.logo} 
-                  alt={partner.name}
-                  className="max-h-16 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                  alt={`${partner.name} logo`}
+                  className="h-16 w-auto object-contain filter transition-all duration-300"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.nextElementSibling?.classList.remove('hidden');
                   }}
                 />
-                <span className="hidden text-xl font-bold text-slate-400 group-hover:text-brand-600">{partner.name}</span>
+                <span className="hidden text-xl font-bold text-brand-600">{partner.name}</span>
               </div>
-              <span className="text-xs text-slate-400 mt-2 font-medium">{partner.name}</span>
+              <span className="text-xs text-slate-400 mt-1 font-medium">{partner.name}</span>
             </div>
           ))}
         </div>

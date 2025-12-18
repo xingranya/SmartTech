@@ -127,11 +127,11 @@ export const SERVICES: ServiceItem[] = [
 ];
 
 export const PARTNERS: Partner[] = [
-  { id: '1', name: '国家电网', logo: 'https://logo.clearbit.com/sgcc.com.cn', type: 'Grid' },
-  { id: '2', name: '中国石油', logo: 'https://logo.clearbit.com/petrochina.com.cn', type: 'Grid' },
-  { id: '3', name: '华为', logo: 'https://logo.clearbit.com/huawei.com', type: 'Tech' },
-  { id: '4', name: '远东电缆', logo: 'https://logo.clearbit.com/fese.cn', type: 'Cable' },
-  { id: '5', name: '西门子', logo: 'https://logo.clearbit.com/siemens.com', type: 'Tech' },
+  { id: '1', name: '国家电网', logo: '/images/logos/state-grid-logo.png', type: 'Grid' },
+  { id: '2', name: '中国石油', logo: '/images/logos/china-petro-logo.png', type: 'Grid' },
+  { id: '3', name: '华为', logo: '/images/logos/huawei-logo.png', type: 'Tech' },
+  { id: '4', name: '远东电缆', logo: '/images/logos/fese-logo.png', type: 'Cable' },
+  { id: '5', name: '西门子', logo: '/images/logos/siemens-logo.png', type: 'Tech' },
 ];
 
 export const FAQS = [

@@ -1,20 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { CheckCircle, ShieldCheck, Truck, ArrowLeft, Building2, Copy, Check } from 'lucide-react';
-
-// Custom Icons for better realism
-const AlipayIcon = () => (
-  <svg viewBox="0 0 1024 1024" className="w-8 h-8" fill="#1677FF">
-    <path d="M869.5 284.6c-20.6-9.6-77.9-29.4-156.2-29.4-19.1 0-38.3 1.2-57.5 3.5v-62h120.5c17.7 0 32-14.3 32-32s-14.3-32-32-32H617.2V80c0-17.7-14.3-32-32-32h-145c-17.7 0-32 14.3-32 32v52.7H249.1c-17.7 0-32 14.3-32 32s14.3 32 32 32h288.7c-47.8 84.4-126.9 152.2-257.2 169.1-16.6 2.2-28.3 17.5-26.2 34.1 2 15.5 15.2 26.8 30.5 26.8 1.2 0 2.4-0.1 3.6-0.2 165.7-21.6 264.4-114.3 315.6-218.4 12.8-1.4 25.7-2.1 38.6-2.1 63.6 0 104.9 14.3 115 19 3.2 1.5 6.6 2.2 10 2.2 9.2 0 17.7-5 22-13.1 8-15.6 1.7-34.9-13.9-42.2zM337.6 429c-16.1-8-35.7-1.5-43.7 14.6-26.6 53.4-69.8 131.2-167.8 178.6-15.9 7.7-22.6 26.9-14.9 42.8 5.6 11.6 17.2 18.4 29.3 18.4 4.7 0 9.4-1.1 13.8-3.2 81.3-39.4 145-92.8 197.9-166.4 8-16.2 1.5-35.8-14.6-43.8zM874.6 538.7c-33.6-22-126.6-76.8-261.4-72.3-17.7 0.6-31.5 15.4-30.9 33.1 0.6 17.4 14.7 31.3 32.2 31.3 0.3 0 0.6 0 0.9-0.1 91.1-3 158.7 23.3 194.5 46.8-93.9 66.2-226.5 160-226.5 311.9 0 17.7 14.3 32 32 32s32-14.3 32-32c0-109.9 83.1-180.3 189.9-246.8 51 51.1 92.5 119.3 92.5 210.8 0 17.7 14.3 32 32 32s32-14.3 32-32c0-106.3-43.6-200.7-119.2-263.8z" />
-  </svg>
-);
-
-const WeChatIcon = () => (
-  <svg viewBox="0 0 1024 1024" className="w-8 h-8" fill="#07C160">
-    <path d="M668.5 631c7.2 0 14.4 0.6 21.6 1.6-9-28.8-14-59.2-14-90.6 0-149.2 133.4-270.2 298-270.2 3.6 0 7.2 0 10.8 0.2C937.6 130.4 810.8 42 660.6 42c-197.6 0-358 128.6-358 287.4 0 90.6 52.6 171.6 134.4 225.2 6 3.8 9.6 10.4 9.6 17.4 0 4.6-1.2 9-3.2 13l-35.2 68.2c-5.8 11.2 5.4 23.2 16.6 18l59.6-27.4c5.8-2.6 12.2-3.4 18.2-1.8 45.6 12.2 94.6 19 145.9 19z" />
-    <path d="M685.1 635.4c-126.2 0-228.4 83.6-228.4 186.8 0 60.4 34.6 114.4 88.8 150 4.2 2.8 6.4 7.6 6 12.4-1 4.2-2.8 8-5.4 11.4l-25 32c-3.8 4.8 1.4 11.6 7 9.2l48-20.2c5-2.2 10.4-3 15.8-2.2 29.8 4.6 60.8 7.2 93.2 7.2 126.2 0 228.4-83.6 228.4-186.8S811.3 635.4 685.1 635.4z" />
-  </svg>
-);
+import { CheckCircle, ShieldCheck, Truck, ArrowLeft, Building2, Copy, Check, MessageCircle, CreditCard } from 'lucide-react';
 
 const PaymentPage = () => {
   const [step, setStep] = useState(1);
@@ -142,8 +128,8 @@ const PaymentPage = () => {
                 <h2 className="text-xl font-bold text-slate-800 mb-6">选择支付方式</h2>
                 <div className="space-y-4">
                    {[
-                     { id: 'alipay', name: '支付宝', icon: AlipayIcon, desc: '数亿用户的选择，安全快捷' }, 
-                     { id: 'wechat', name: '微信支付', icon: WeChatIcon, desc: '亿万用户的社交支付方式' }, 
+                     { id: 'alipay', name: '支付宝', icon: CreditCard, color: '#1677FF', desc: '数亿用户的选择，安全快捷' }, 
+                     { id: 'wechat', name: '微信支付', icon: MessageCircle, color: '#07C160', desc: '亿万用户的社交支付方式' }, 
                      { id: 'bank', name: '企业对公转账', icon: Building2, desc: '支持大额转账，需上传凭证' }
                    ].map((method) => {
                      const isSelected = paymentMethod === method.id;
@@ -165,7 +151,9 @@ const PaymentPage = () => {
                          )}
 
                          <div className={`w-12 h-12 rounded-lg flex items-center justify-center mr-4 transition-colors ${isSelected ? 'bg-white' : 'bg-gray-100 group-hover:bg-white'}`}>
-                           {method.id === 'bank' ? <Building2 className="text-slate-600" /> : <method.icon />}
+                           {method.id === 'bank' 
+                             ? <Building2 className="text-slate-600" /> 
+                             : <method.icon className={method.id === 'alipay' ? 'text-[#1677FF]' : 'text-[#07C160]'} />}
                          </div>
                          <div className="flex-1">
                            <div className="flex justify-between items-center">
@@ -212,7 +200,7 @@ const PaymentPage = () => {
                      {/* Logo Overlay */}
                      <div className="absolute inset-0 flex items-center justify-center">
                        <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center p-1">
-                         {paymentMethod === 'alipay' ? <AlipayIcon /> : <WeChatIcon />}
+                         {paymentMethod === 'alipay' ? <CreditCard className="text-[#1677FF]" /> : <MessageCircle className="text-[#07C160]" />}
                        </div>
                      </div>
                   </div>
